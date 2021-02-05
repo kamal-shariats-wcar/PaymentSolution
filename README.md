@@ -15,7 +15,6 @@ There is 6 microservices here:
 
 6.documentation service that reads all api's in connected microservices, and gathering it all in one ui, which user can choose between services and see their request requirements.
 
-For sake of simplicity Authorization service skipped.
 
 all api's are written in reactive web via spring webflux
 
