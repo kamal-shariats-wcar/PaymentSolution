@@ -1,0 +1,58 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/mydigipay
+    username: root
+    password: 12252
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    generate-ddl: false
+    show-sql: true
+  jackson:
+      serialization:
+        INDENT_OUTPUT: true
+  main:
+    allow-bean-definition-overriding: true
+eureka:
+  instance:
+    prefer-ip-address: true
+
+  client:
+    instance:
+      lease-renewal-interval-in-seconds: 1 #sends heartbeat every 1 second
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/ #where our registry server is located
+    registerWithEureka: true #tells the built-in eureka client to not register itself with eureka, because we should act as a server
+    fetchRegistry: true
+
+
+  # mysql datasource
+#  datasource:
+#    driverClassName: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/mantraerpdb?useUnicode=true&characterEncoding=UTF-8
+#    username: root
+#    password:
+#  jpa:
+#    properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+#    hibernate:
+#      ddl-auto: update
+#      naming:
+#        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#    generate-ddl: true
+#    show-sql: true
+
+
+
+
+#security:
+#  oauth2:
+#    resource:
+#      user-info-uri: http://auth-service/uaa/users/current #which uri will be used to find the user
+
+

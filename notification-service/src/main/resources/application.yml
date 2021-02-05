@@ -1,0 +1,27 @@
+spring:
+  cloud:
+    stream:
+      rabbit:
+        bindings:
+          sms-channel:
+            producer:
+              auto-bind-dlq: true
+            consumer:
+              auto-bind-dlq: true
+              dlq-ttl: 60000
+              dlq-dead-letter-exchange:
+              max-attempts: 1
+              destination: sms-channel
+              binder: rabbitmq
+              group: sms-channel-group
+              content-type: application/json
+      binders:
+        rabbitmq:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: localhost
+                port: 5672
+                username: guest
+                password: guest

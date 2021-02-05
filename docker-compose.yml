@@ -1,0 +1,54 @@
+version: '3'
+services:
+  mysqldb:
+    image: mysql:5.7
+    container_name: mysqldb
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: catalog
+
+  rabbitmq:
+    image: 'rabbitmq:3.8.3-management'
+    container_name: rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  config-server:
+    container_name: config-server
+    build: ./config-server
+    ports:
+      - "8888:8888"
+
+  registery-server:
+    container_name: registery-server
+    build: ./registery-server
+    ports:
+      - "8761:8761"
+    depends_on:
+      - config-server
+
+  zuul-gateway:
+    container_name: zuul-gateway
+    build: ./zuul-gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - config-server
+
+  payment-service:
+    container_name: payment-service
+    build: ./payment-service
+    ports:
+      - "9091:9091"
+    depends_on:
+      - config-server
+      - mysqldb
+
+
+
+

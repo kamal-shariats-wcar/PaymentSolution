@@ -1,0 +1,12 @@
+bank-service-provider:
+  first:
+    scheme: http
+    host: localhost
+    path: first-payment-provider/payments/transfer
+  second:
+    scheme: http
+    host: localhost
+    path: https://second-payment-provider/cards/pay
+
+
+

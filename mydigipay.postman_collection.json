@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "960fe4f4-7a9e-459d-b94a-670ed205b41e",
+		"name": "mydigipay",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "debCard_create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"mySaman\",\r\n    \"cardNumber\":\"6219861025659878\",\r\n    \"expDate\":\"9401\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/payment-service/api/v1/user/debt-card",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payment-service",
+						"api",
+						"v1",
+						"user",
+						"debt-card"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transfer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n\"cardId\":1,\r\n\"pin\":\"12252\",\r\n\"cvv2\":\"250\",\r\n\"amount\": 500000,\r\n\"destination\":\"6030997442938400\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/payment-service/api/v1/debt-card-transfer",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payment-service",
+						"api",
+						"v1",
+						"debt-card-transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRecords",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/payment-service/api/v1/debt-card-transfer/report?from=2021-01-18 01:28:46&to=2021-01-19 01:04:08&debtCardId=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payment-service",
+						"api",
+						"v1",
+						"debt-card-transfer",
+						"report"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2021-01-18 01:28:46"
+						},
+						{
+							"key": "to",
+							"value": "2021-01-19 01:04:08"
+						},
+						{
+							"key": "debtCardId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findAllDebtCards",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/payment-service/api/v1/user/debt-card/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payment-service",
+						"api",
+						"v1",
+						"user",
+						"debt-card",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteDebtCardById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/payment-service/api/v1/user/debt-card/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payment-service",
+						"api",
+						"v1",
+						"user",
+						"debt-card",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

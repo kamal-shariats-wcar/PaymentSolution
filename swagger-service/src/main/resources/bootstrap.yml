@@ -1,0 +1,10 @@
+server:
+  port: 9393
+spring:
+  application:
+    name: documentation-service
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    config:
+      uri: http://localhost:8888
