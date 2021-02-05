@@ -1,5 +1,5 @@
 # digipay-codeChallenge
-Code challenge for Mohsen Emami
+
 
 There is 6 microservices here:
 
